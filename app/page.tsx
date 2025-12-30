@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { DirectoryList } from "../components/DirectoryList";
+import FeaturedProfiles from "../components/FeaturedProfiles";
 
 export default function HomePage() {
   return (
@@ -91,6 +91,7 @@ export default function HomePage() {
           </div>
 
           {/* Right: sample preview card */}
+	  {/*
           <div className="hidden md:block">
             <div className="accent-border max-w-md ml-auto">
               <div className="bg-[#0A0B0E]/95 border border-vampBorder rounded-2xl px-5 py-5 space-y-4">
@@ -154,7 +155,8 @@ export default function HomePage() {
                 </p>
               </div>
             </div>
-          </div>
+          </div> 
+	  */}
         </section>
 
         {/* Live directory section */}
@@ -162,16 +164,15 @@ export default function HomePage() {
           <div className="flex flex-wrap items-end justify-between gap-2">
             <div>
               <h2 className="text-lg font-semibold text-white">
-                Live demo directory
+                Recently approved profiles
               </h2>
               <p className="text-[12px] text-vampTextMuted">
-                Search by name, wallet, role, or tags. This is early demo data
-                to show how verification could look.
+                Search by name, wallet, role, or tags!
               </p>
             </div>
           </div>
 
-          <DirectoryList />
+          <FeaturedProfiles />
         </section>
       </main>
     </div>
