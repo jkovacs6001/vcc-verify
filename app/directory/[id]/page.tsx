@@ -4,9 +4,16 @@ import { notFound } from "next/navigation";
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
-export default async function DirectoryProfilePage({ params }: { params: { id: string } }) {
+export default async function DirectoryProfilePage( { params }: { params?: { id?: string } }) {
+  const id = params?.id;
+
+  if (!id) {
+    console.error("DirectoryProfilePage missing params.id", { params });
+    return notFound();
+  }
+
   const profile = await prisma.profile.findUnique({
-    where: { id: params.id },
+    where: { id },
     include: { references: true },
   });
 
