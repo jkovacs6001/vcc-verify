@@ -5,12 +5,12 @@ export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 export default async function DirectoryProfilePage({ params }: { params: { id: string } }) {
-  const profile = await prisma.profile.findFirst({
-    where: { id: params.id, status: "APPROVED" },
+  const profile = await prisma.profile.findUnique({
+    where: { id: params.id },
     include: { references: true },
   });
 
-  if (!profile) return notFound();
+  if (!profile || profile.status !== "APPROVED") return notFound();
 
   return (
     <div className="max-w-4xl space-y-6">
