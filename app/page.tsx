@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { FeaturedProfiles } from "../components/FeaturedProfiles";
+import FeaturedProfiles from "../components/FeaturedProfiles";
 
 export default function HomePage() {
   return (
