@@ -1,10 +1,13 @@
 import Link from "next/link";
 import { prisma } from "@/lib/db";
+import { unstable_noStore as noStore } from "next/cache";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 export default async function FeaturedProfiles() {
+  noStore();
+  
   const featured = await prisma.profile.findMany({
     where: { status: "APPROVED" },
     orderBy: { reviewedAt: "desc" },

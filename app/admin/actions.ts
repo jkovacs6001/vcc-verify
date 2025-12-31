@@ -39,6 +39,7 @@ export async function approveProfile(id: string, note?: string) {
   
   revalidatePath("/admin");
   revalidatePath("/directory");
+  revalidatePath("/");
 }
 
 export async function rejectProfile(id: string, note?: string) {
@@ -54,4 +55,5 @@ export async function rejectProfile(id: string, note?: string) {
   
   revalidatePath("/admin");
   revalidatePath("/directory");
+  revalidatePath("/");
 }
