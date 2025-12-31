@@ -1,6 +1,9 @@
 import Image from "next/image";
 import FeaturedProfiles from "../components/FeaturedProfiles";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export default function HomePage() {
   return (
     <div className="relative min-h-screen pb-16">
